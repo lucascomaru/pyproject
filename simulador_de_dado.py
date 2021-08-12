@@ -1,4 +1,6 @@
 import random
+import PySimpleGUI
+
 class SimuladorDeDado:
     def __init__(self):
         self.valor_minimo = 1
