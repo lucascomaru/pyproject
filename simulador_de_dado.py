@@ -6,9 +6,21 @@ class SimuladorDeDado:
         self.mensagem = 'Você gostaria de gerar um novo valor para do dado? '
     def Iniciar(self):
         resposta = input(self.mensagem)
-        if resposta == 'sim':
-            self.GerarValorDoDado()
+        try:
+            if resposta == 'sim':
+                self.GerarValorDoDado()
+            elif resposta == 'não':
+                print('Agradecemos sua participação')
+            else:
+                print('Favor digitar sim ou não')
+        except:
+            print('Ocorreu um erro ao receber sua resposta')
+
 
     def GerarValorDoDado(self):
         print(random.randint(self.valor_minimo,self.valor_maximo))
+
+
+simulador = SimuladorDeDado()
+simulador.Iniciar()
 
