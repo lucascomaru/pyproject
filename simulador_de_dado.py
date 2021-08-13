@@ -9,26 +9,29 @@ class SimuladorDeDado:
         self.mensagem = 'Você gostaria de gerar um novo valor para do dado? '
         #layout
 
-        layout = [
+        self.layout = [
             [sg.Text('Jogar o dado?')]
             [sg.Button('sim'), sg.Button('não')]
         ]
-        #criação de janela
-        janela = sg.Window('Simulador de Dado', Layout=layout)
-        #ler os valores da tela
-        self.eventos, self.valores = janela.Read()
-        #fazer algo com esses valores
+
     def Iniciar(self):
+        # criação de janela
+        self.janela = sg.Window('Simulador de Dado', Layout=self.layout)
+        # ler os valores da tela
+        self.eventos, self.valores = self.janela.Read()
+        # fazer algo com esses valores
+
         resposta = input(self.mensagem)
-        try:
-            if resposta == 'sim':
-                self.GerarValorDoDado()
-            elif resposta == 'não':
-                print('Agradecemos sua participação')
-            else:
-                print('Favor digitar sim ou não')
-        except:
-            print('Ocorreu um erro ao receber sua resposta')
+        while True:
+           try:
+                if self.eventos == 'sim':
+                    self.GerarValorDoDado()
+                elif self.eventos == 'não':
+                    print('Agradecemos sua participação')
+                else:
+                    print('Agradecemos sua participação! ')
+           except:
+                print('Ocorreu um erro ao receber sua resposta')
 
 
     def GerarValorDoDado(self):
