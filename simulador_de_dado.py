@@ -10,18 +10,16 @@ class SimuladorDeDado:
         #layout
 
         self.layout = [
-            [sg.Text('Jogar o dado?')]
+            [sg.Text('Jogar o dado?')],
             [sg.Button('sim'), sg.Button('não')]
         ]
 
     def Iniciar(self):
         # criação de janela
-        self.janela = sg.Window('Simulador de Dado', Layout=self.layout)
+        self.janela = sg.Window('Simulador de Dado', layout=self.layout)
         # ler os valores da tela
         self.eventos, self.valores = self.janela.Read()
         # fazer algo com esses valores
-
-        resposta = input(self.mensagem)
         while True:
            try:
                 if self.eventos == 'sim':
