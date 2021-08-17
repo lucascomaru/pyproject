@@ -8,3 +8,11 @@ class ChuteUmNumero:
 
     def Iniciar(self):
         self.GerarUmNumeroAleatorio()
+        valor_do_chute = input('Chute um número: ')
+        if int(valor_do_chute) > self.valor_aleatorio:
+            print('Chute um valor mais baixo')
+        elif int(valor_do_chute) < self.valor_aleatorio:
+            print('Chute um valor mais alto')
+
+    def PedirValorAleatorio(self):
+        self.valor_do_chute = input('Chute um número: ')
