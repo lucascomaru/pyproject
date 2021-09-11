@@ -1,5 +1,5 @@
 import random
-
+import PySimpleGUI as sg
 class ChuteUmNumero:
     def __init__(self):
         self.valor_aleatorio = 0
@@ -8,6 +8,15 @@ class ChuteUmNumero:
         self.tentar_novamente = True
 
     def Iniciar(self):
+        #Layaout
+        layout = [[sg.Text('Seu chute',size=(39,0))],
+                 [sg.Input(size=(18,0), key='ValorChute')],
+                 [sg.Button('Chutar!')],
+                 [sg.Output(size=(20,10))]
+        ]
+        #Criar uma Janela
+        self.janela = sg.Window('Chute um número! ')
+
         self.GerarNumeroAleatorio()
         self.PedirValorAleatorio()
         try:
