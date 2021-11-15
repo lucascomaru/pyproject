@@ -15,10 +15,12 @@ class ChuteUmNumero:
                  [sg.Output(size=(20,10))]
         ]
         #Criar uma Janela
-        self.janela = sg.Window('Chute um número! ')
-
+        self.janela = sg.Window('Chute um número! ', Layout=layout)
+        #Receber valores
+        self.evento, self.valores = self.janela.Read()
+        self.valor_do_chute = self.valores['ValorChute']
+        #Fazer algo com esses valores
         self.GerarNumeroAleatorio()
-        self.PedirValorAleatorio()
         try:
             while self.tentar_novamente == True:
                 if int(self.valor_do_chute) > self.valor_aleatorio:
