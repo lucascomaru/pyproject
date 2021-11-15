@@ -16,22 +16,25 @@ class ChuteUmNumero:
         ]
         #Criar uma Janela
         self.janela = sg.Window('Chute um número! ', Layout=layout)
-        #Receber valores
-        self.evento, self.valores = self.janela.Read()
-        self.valor_do_chute = self.valores['ValorChute']
-        #Fazer algo com esses valores
         self.GerarNumeroAleatorio()
         try:
-            while self.tentar_novamente == True:
-                if int(self.valor_do_chute) > self.valor_aleatorio:
-                    print('Chute um valor mais baixo')
-                    self.PedirValorAleatorio()
-                elif int(self.valor_do_chute) < self.valor_aleatorio:
-                    print('Chute um valor mais alto')
-                    self.PedirValorAleatorio()
-                if int(self.valor_do_chute) == self.valor_aleatorio:
-                    self.tentar_novamente = False
-                    print('Parabéns, você acertou!! ')
+            while True:
+                # Receber valores
+                self.evento, self.valores = self.janela.Read()
+                self.valor_do_chute = self.valores['ValorChute']
+                # Fazer algo com esses valores
+                if self.evento == 'Chutar!':
+                    self.valor_do_chute = self.valores['ValorChute']
+                    while self.tentar_novamente == True:
+                        if int(self.valor_do_chute) > self.valor_aleatorio:
+                            print('Chute um valor mais baixo')
+                            self.PedirValorAleatorio()
+                        elif int(self.valor_do_chute) < self.valor_aleatorio:
+                            print('Chute um valor mais alto')
+                            self.PedirValorAleatorio()
+                        if int(self.valor_do_chute) == self.valor_aleatorio:
+                            self.tentar_novamente = False
+                            print('Parabéns, você acertou!! ')
         except:
             print('Por favor, digite apenas números! ')
 
