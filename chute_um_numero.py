@@ -15,7 +15,7 @@ class ChuteUmNumero:
                  [sg.Output(size=(20,10))]
         ]
         #Criar uma Janela
-        self.janela = sg.Window('Chute um número! ', Layout=layout)
+        self.janela = sg.Window('Chute um número! ', layout=layout)
         self.GerarNumeroAleatorio()
         try:
             while True:
@@ -37,6 +37,7 @@ class ChuteUmNumero:
                             print('Parabéns, você acertou!! ')
         except:
             print('Por favor, digite apenas números! ')
+            self.Iniciar()
 
 
     def PedirValorAleatorio(self):
